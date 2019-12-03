@@ -12,6 +12,6 @@ fn main() {
     one::run(f.as_i64());
     let f = Input::new("input_2");
     two::run(f.as_string());
-    let f = Input::new("input_test");
+    let f = Input::new("input_3");
     three::run(f.as_strings());
 }

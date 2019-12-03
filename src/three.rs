@@ -54,25 +54,25 @@ impl Line {
         let end;
         match code {
             "U" => {
-                for y in start.y..=start.y + length {
+                for y in start.y+1..=start.y + length {
                     points.push(Point::new(start.x, y));
                 }
                 end = Point::new(start.x, start.y + length);
             }
             "D" => {
-                for y in (start.y - length..=start.y).rev() {
+                for y in (start.y - length..=start.y-1).rev() {
                     points.push(Point::new(start.x, y));
                 }
                 end = Point::new(start.x, start.y - length);
             }
             "R" => {
-                for x in start.x..=start.x + length {
+                for x in start.x+1..=start.x + length {
                     points.push(Point::new(x, start.y));
                 }
                 end = Point::new(start.x + length, start.y);
             }
             "L" => {
-                for x in (start.x - length..=start.x).rev() {
+                for x in (start.x - length..=start.x-1).rev() {
                     points.push(Point::new(x, start.y));
                 }
                 end = Point::new(start.x - length, start.y);
@@ -81,8 +81,8 @@ impl Line {
         };
         let mut distance = distance;
         for point in points {
-            distance = self.fill_point(point, distance);
             distance += 1;
+            let _ = self.fill_point(point, distance);
         }
 
         (end, distance)
@@ -114,16 +114,16 @@ impl Line {
     }
 }
 
-fn print_points(line: &Line) {
-    let mut points = Vec::new();
-    for (key, val) in line.points.iter() {
-        points.push((key, val));
-    }
-    points.sort_by_key(|x| x.1);
-    for point in points {
-        println!("{:?}", point);
-    }
-}
+// fn print_points(line: &Line) {
+//     let mut points = Vec::new();
+//     for (key, val) in line.points.iter() {
+//         points.push((key, val));
+//     }
+//     points.sort_by_key(|x| x.1);
+//     for point in points {
+//         println!("{:?}", point);
+//     }
+// }
 
 pub fn run(input: Vec<String>) {
     if input.len() != 2 {
@@ -139,9 +139,9 @@ pub fn run(input: Vec<String>) {
     let closest_distance_intersection = intersections.iter().min_by_key(|x| line_1.combined_distance(&line_2, x).unwrap()).unwrap();
         
 
-    print_points(&line_1);
-    println!("");
-    print_points(&line_2);
+    // print_points(&line_1);
+    // println!("");
+    // print_points(&line_2);
 
     // for point in &intersections {
     //     println!("{:?}", point);
