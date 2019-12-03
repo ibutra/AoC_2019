@@ -1,6 +1,7 @@
 mod input;
 mod one;
 mod two;
+mod three;
 
 mod intcode;
 
@@ -11,4 +12,6 @@ fn main() {
     one::run(f.as_i64());
     let f = Input::new("input_2");
     two::run(f.as_string());
+    let f = Input::new("input_3");
+    three::run(f.as_strings());
 }

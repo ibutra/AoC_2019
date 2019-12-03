@@ -17,9 +17,9 @@ impl Input {
         BufReader::new(file)
     }
 
-    // pub fn as_strings(&self) -> Vec<String> {
-    //     self.open().lines().map(|x| x.unwrap()).collect()
-    // }
+    pub fn as_strings(&self) -> Vec<String> {
+        self.open().lines().map(|x| x.unwrap()).collect()
+    }
 
     pub fn as_string(&self) -> String {
         let mut buffer = String::new();
