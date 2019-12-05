@@ -5,7 +5,7 @@ pub fn run(input: String) {
     let input: Vec<&str> = input.split(",").collect();
     let mut memory = Vec::new();
     for value in input {
-        let num : usize = value.parse().expect("Failed to parse usize for Day 2");
+        let num : i64 = value.parse().expect("Failed to parse usize for Day 2");
         memory.push(num);
     }
 

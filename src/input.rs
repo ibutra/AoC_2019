@@ -16,18 +16,20 @@ impl Input {
         let file = File::open(&self.filename).unwrap();
         BufReader::new(file)
     }
-
+    
+    #[allow(dead_code)]
     pub fn as_strings(&self) -> Vec<String> {
         self.open().lines().map(|x| x.unwrap()).collect()
     }
 
+    #[allow(dead_code)]
     pub fn as_string(&self) -> String {
         let mut buffer = String::new();
         self.open().read_to_string(&mut buffer).unwrap();
         buffer
     }
 
-
+    #[allow(dead_code)]
     pub fn as_i64(&self) -> Vec<i64> {
         self.open().lines().map(|x| x.unwrap().parse::<i64>().unwrap()).collect()
     }
