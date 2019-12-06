@@ -3,7 +3,8 @@ mod input;
 // mod two;
 // mod three;
 // mod four;
-mod five;
+// mod five;
+mod six;
 
 mod intcode;
 
@@ -17,6 +18,8 @@ fn main() {
     // let f = Input::new("input_3");
     // three::run(f.as_strings());
     // four::run(246515,739105);
-    let f = Input::new("input_5");
-    five::run(f.as_string());
+    // let f = Input::new("input_5");
+    // five::run(f.as_string());
+    let f = Input::new("input_6");
+    six::run(f.as_strings());
 }

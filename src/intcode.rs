@@ -1,5 +1,8 @@
+#![allow(dead_code)]
+
 use std::ops::{Index, IndexMut};
 use std::io::stdin;
+
 
 type PC = usize;
 
@@ -71,7 +74,6 @@ impl Intcode {
         self.memory[0]
     }
 
-    #[allow(dead_code)]
     pub fn reset(&mut self) {
         self.memory = self.original_memory.clone();
         self.pc = 0;
